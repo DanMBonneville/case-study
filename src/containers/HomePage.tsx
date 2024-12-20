@@ -81,6 +81,7 @@ const HomePage: React.FC = () => {
 	return (
 		<div className="home-page-container">
 			<CustomSelect
+				data-testid="route-select"
 				placeholder="Select route"
 				options={routeOptions}
 				selectedValue={selectedRoute}
@@ -88,6 +89,7 @@ const HomePage: React.FC = () => {
 				handleChange={handleRouteSelectionChange}
 			/>
 			<CustomSelect
+				data-testid="direction-select"
 				placeholder="Select direction"
 				options={directionOptions}
 				selectedValue={selectedDirection}

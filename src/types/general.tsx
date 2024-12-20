@@ -7,6 +7,7 @@ declare global {
 	};
 
 	export type CustomSelectProps = {
+		"data-testid": string;
 		placeholder: string;
 		options: SelectOption[];
 		selectedValue?: SelectOption;

@@ -2,6 +2,7 @@ import React from "react";
 import Select from "react-select";
 
 const CustomSelect: React.FC<CustomSelectProps> = ({
+	"data-testid": testId,
 	placeholder,
 	options,
 	selectedValue,
@@ -25,16 +26,17 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
 	console.log("The selected value is: ", selectedValue);
 
 	return (
-		<div className="custom-select-wrapper">
+		<div data-testid={testId} className="custom-select-wrapper">
 			<div className={"nav-icon "} />
 			<Select
 				styles={customStyles}
 				placeholder={placeholder}
 				options={options}
 				defaultValue={selectedValue}
-				value={selectedValue}
+				// value={selectedValue}
 				isDisabled={isDisabled}
 				onChange={handleChange}
+				// menuIsOpen
 				isClearable
 			/>
 		</div>
