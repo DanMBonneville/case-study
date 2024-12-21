@@ -23,20 +23,17 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
 		}),
 	};
 
-	console.log("The selected value is: ", selectedValue);
-
 	return (
 		<div data-testid={testId} className="custom-select-wrapper">
 			<div className={"nav-icon "} />
 			<Select
+				name="custom-select"
 				styles={customStyles}
 				placeholder={placeholder}
 				options={options}
-				defaultValue={selectedValue}
-				// value={selectedValue}
+				value={selectedValue}
 				isDisabled={isDisabled}
 				onChange={handleChange}
-				// menuIsOpen
 				isClearable
 			/>
 		</div>

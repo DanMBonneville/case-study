@@ -65,15 +65,14 @@ const HomePage: React.FC = () => {
 	const handleDirectionSelectionChange = (
 		selectedOption: SingleValue<SelectOption>
 	) => {
+		dispatch(setSelectedDirection(selectedOption));
 		if (selectedOption !== null) {
-			dispatch(setSelectedDirection(selectedOption));
 			const queryParams = {
 				routeId: selectedRoute.value,
 				directionId: selectedOption.value,
 			};
 			store.dispatch(getBusStops(queryParams));
 		} else {
-			dispatch(setSelectedDirection(null));
 			dispatch(setBusStops([]));
 		}
 	};
