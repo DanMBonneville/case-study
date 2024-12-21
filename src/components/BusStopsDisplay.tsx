@@ -2,7 +2,7 @@ import React from "react";
 
 const BusStopsDisplay: React.FC<BusStopsDisplayProps> = ({ busStops }) => {
 	return (
-		<div className="bus-stops-wrapper">
+		<div data-testid={"bus-stops-wrapper"} className="bus-stops-wrapper">
 			{busStops.map((busStop) => (
 				<div className="bus-stop-list-item" key={busStop.place_code}>
 					<p>{busStop.description}</p>
