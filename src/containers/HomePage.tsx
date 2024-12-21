@@ -19,13 +19,8 @@ import { store } from '../store/store';
 const HomePage: React.FC = () => {
   const dispatch = useDispatch();
 
-  const {
-    routes,
-    possibleDirections,
-    busStops,
-    selectedRoute,
-    selectedDirection
-  } = useSelector((state: any) => state.reducer);
+  const { routes, directions, busStops, selectedRoute, selectedDirection } =
+    useSelector((state: AppState) => state.reducer);
 
   useEffect(() => {
     if (routes.length === 0) {
@@ -35,7 +30,7 @@ const HomePage: React.FC = () => {
 
   const routeOptions = useMemo(
     () =>
-      routes?.map((route: any) => ({
+      routes?.map((route: BusRouteType) => ({
         value: route.route_id,
         label: route.route_label
       })),
@@ -44,15 +39,15 @@ const HomePage: React.FC = () => {
 
   const directionOptions = useMemo(
     () =>
-      possibleDirections?.map((direction: any) => ({
+      directions?.map((direction: BusDirectionType) => ({
         value: direction.direction_id,
         label: direction.direction_name
       })),
-    [possibleDirections]
+    [directions]
   );
 
   const handleRouteSelectionChange = (
-    selectedOption: SingleValue<SelectOption>
+    selectedOption: SingleValue<SelectOptionType>
   ) => {
     if (selectedOption !== null) {
       dispatch(setSelectedRoute(selectedOption));
@@ -65,13 +60,13 @@ const HomePage: React.FC = () => {
   };
 
   const handleDirectionSelectionChange = (
-    selectedOption: SingleValue<SelectOption>
+    selectedDirection: SingleValue<SelectOptionType>
   ) => {
-    dispatch(setSelectedDirection(selectedOption));
-    if (selectedOption !== null) {
+    dispatch(setSelectedDirection(selectedDirection));
+    if (selectedRoute && selectedDirection) {
       const queryParams = {
         routeId: selectedRoute.value,
-        directionId: selectedOption.value
+        directionId: selectedDirection.value
       };
       store.dispatch(getBusStops(queryParams));
     } else {
@@ -97,7 +92,11 @@ const HomePage: React.FC = () => {
         isDisabled={!selectedRoute}
         handleChange={handleDirectionSelectionChange}
       />
-      <BusStopsDisplay busStops={busStops} />
+      <BusStopsDisplay
+        routeLabel={selectedRoute?.label}
+        directionLabel={selectedDirection?.label}
+        busStops={busStops}
+      />
     </div>
   );
 };
