@@ -1,11 +1,15 @@
 import React from 'react';
+import Loader from '../hoc/Loader';
 
 const BusStopsDisplay: React.FC<BusStopsDisplayProps> = ({
   routeLabel,
   directionLabel,
-  busStops
+  busStops,
+  isLoading
 }) => {
   const busStopDisplayLabel = `Bus stops for ${routeLabel} headed ${directionLabel}`;
+
+  if (isLoading) return <Loader />;
 
   return (
     <div data-testid={'bus-stops-wrapper'} className="bus-stops-wrapper">

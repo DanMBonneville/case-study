@@ -19,8 +19,16 @@ import { store } from '../store/store';
 const HomePage: React.FC = () => {
   const dispatch = useDispatch();
 
-  const { routes, directions, busStops, selectedRoute, selectedDirection } =
-    useSelector((state: AppState) => state.reducer);
+  const {
+    routes,
+    directions,
+    busStops,
+    selectedRoute,
+    selectedDirection,
+    loadingRoutes,
+    loadingDirections,
+    loadingStops
+  } = useSelector((state: AppState) => state.reducer);
 
   useEffect(() => {
     if (routes.length === 0) {
@@ -81,7 +89,7 @@ const HomePage: React.FC = () => {
         placeholder="Select route"
         options={routeOptions}
         selectedValue={selectedRoute}
-        isDisabled={false}
+        isDisabled={loadingRoutes || routes.length === 0}
         handleChange={handleRouteSelectionChange}
       />
       <CustomSelect
@@ -89,13 +97,14 @@ const HomePage: React.FC = () => {
         placeholder="Select direction"
         options={directionOptions}
         selectedValue={selectedDirection}
-        isDisabled={!selectedRoute}
+        isDisabled={loadingDirections || !selectedRoute}
         handleChange={handleDirectionSelectionChange}
       />
       <BusStopsDisplay
         routeLabel={selectedRoute?.label}
         directionLabel={selectedDirection?.label}
         busStops={busStops}
+        isLoading={loadingStops}
       />
     </div>
   );

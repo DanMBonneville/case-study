@@ -19,5 +19,6 @@ declare global {
     routeLabel?: string;
     directionLabel?: string;
     busStops: BusStopType[];
+    isLoading: boolean;
   };
 }
