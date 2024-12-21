@@ -4,7 +4,7 @@ describe('this tests all user flows associated with this case study', () => {
   });
 
   describe('displays the bus routes for the first bus route option and direction (happy path)', () => {
-    it('verifys the initial state of the app', () => {
+    it('verifies the initial state of the app', () => {
       cy.findByTestId('route-select').find('input').should('be.enabled');
       cy.findByTestId('direction-select')
         .find('input')
@@ -36,7 +36,7 @@ describe('this tests all user flows associated with this case study', () => {
   });
 
   describe('verifies the state of the application after further user interaction', () => {
-    it('verifys clearing route selection disables direction selector and bus stop display', () => {
+    it('verifies clearing route selection disables direction selector and bus stop display', () => {
       cy.selectRouteAndDirection('METRO Blue Line', 'Northbound');
       cy.clearRouteSelection();
 
@@ -56,7 +56,7 @@ describe('this tests all user flows associated with this case study', () => {
         .should('have.length', 0);
     });
 
-    it('verifys changing route selection clears direction selection', () => {
+    it('verifies changing route selection clears direction selection', () => {
       cy.selectRouteAndDirection('METRO Blue Line', 'Northbound');
       cy.selectBusRoute('Route 615');
 
@@ -75,7 +75,7 @@ describe('this tests all user flows associated with this case study', () => {
         .should('have.length', 0);
     });
 
-    it('verifys clearing direction selection removes bus stop display', () => {
+    it('verifies clearing direction selection removes bus stop display', () => {
       cy.selectRouteAndDirection('METRO Blue Line', 'Northbound');
       cy.clearDirectionSelection();
 
