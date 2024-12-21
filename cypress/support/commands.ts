@@ -20,7 +20,11 @@ Cypress.Commands.add(
 );
 
 Cypress.Commands.add('clearRouteSelection', () => {
-  cy.findByTestId('route-select').find('svg').first().click({ force: true });
+  cy.findByTestId('route-select')
+    .find('svg')
+    .first()
+    .should('be.visible')
+    .click({ force: true });
 });
 
 Cypress.Commands.add('clearDirectionSelection', () => {

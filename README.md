@@ -47,6 +47,12 @@ a
 
 We have the ability to run cypress in the browser or in "headless" mode
 
+Note: the application must be running in a seperate terminal or process on port 3000
+
+```
+npm run start
+```
+
 Headless
 
 ```
