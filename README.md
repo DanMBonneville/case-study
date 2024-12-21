@@ -1,46 +1,97 @@
-# Getting Started with Create React App
+# NextTrip Case Study
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a web application that displays Minneapolis Metro Transit bus line information
+based on APIs available via Metro Transit NextTrip API
 
-## Available Scripts
+- **Technologies**: TypeScript, React, Redux, React Router, Axios, Sass, Cypress, Jest
 
-In the project directory, you can run:
+## Steps to build and run the application (mac)
 
-### `npm start`
+Install Homebrew: https://brew.sh/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Install Node
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+brew install node
+```
 
-### `npm test`
+Install project dependencies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+cd ${project_location};
+npm install;
+npm run build;
+```
 
-### `npm run build`
+Run the application
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+npm run start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Steps to test application (mac)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Running Jest unit tests
 
-### `npm run eject`
+```
+npm run start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+run all tests
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+a
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Running Cypress e2e testing
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+We have the ability to run cypress in the browser or in "headless" mode
 
-## Learn More
+Headless
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+npm run runCypress
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Browser
+
+```
+npm run openCypress
+```
+
+1. Click E2E Testing
+2. Chose your favorite browser
+3. Click "Start E2E Testing in [Browser]"
+4. Click test-all-scenarios.cy.ts (Specs tab, cypress/e2e folder)
+5. Watch automated tests run! Checkout the state of the application at each step by clicking on each test
+
+## Assumptions made during development
+
+### API assumptions
+
+1. I assumed that the provided api was stable and reliable
+2. I assumed that there was no rate limit calling the API
+3. I assumed that the api had proper error handling
+
+### Frontend assumptions
+
+1. I assumed that typescript would be the best example of my technical ability based on the job description
+2. I asuumed that React would be a proper framework based on the industry standard repuatation that many people have for that framework
+3. I assumed that browser back and forth buttons would take you to and away this page based on simplicity
+4. I assumed that the users previous state could be maintained through redux persist when navigating to and from the application in the same browser
+5. I assumed that displaying the names of the stops would be sufficient for this case study
+6. I assumed that disabling the select boxes instead on hiding the display when necessary would provide a clean user experience
+7. I assumed that managing the state with a modern Redux pattern would be the best approach for handling state and API responses
+
+### Testing assumptions
+
+1. I assumed that Jest is a suitable tool for unit testing the components
+2. I assumed that E2E tests would provide a stronger demonstration of my technical abilities
+3. I assumed that Cypress is the best tool for conducting E2E testing
+
+### General assumptions
+
+1. I assumed that I could complete this project 24 hours before the case study interview despite the weekedn overlapping with that timeframe
+2. I assumed that the case study could be conducted on a Mac machine
+3. I assumed that the application could be displayed and demoed on localhost
+4. I assumed that Docker would be unnecessary (although it could be easily implemented)
