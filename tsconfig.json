@@ -1,16 +1,13 @@
 {
-	"compilerOptions": {
-		"target": "es5",
-		"module": "commonjs",
-		"strict": true,
-		"esModuleInterop": true,
-		"skipLibCheck": true,
-		"forceConsistentCasingInFileNames": true,
-		"outDir": "./dist",
-		"rootDir": "./src",
-		"jsx": "react-jsx",
-		"typeRoots": ["node_modules/@types"]
-	},
-	"include": ["src"],
-	"exclude": ["node_modules", "**/*.spec.ts"]
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
+    "types": ["cypress", "@testing-library/cypress"]
+  },
+  "include": ["**/*.ts", "**/*.tsx"]
 }
