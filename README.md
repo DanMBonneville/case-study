@@ -81,17 +81,17 @@ npm run openCypress
 4. I assumed that the users previous state could be maintained through redux persist when navigating to and from the application in the same browser
 5. I assumed that displaying the names of the stops would be sufficient for this case study
 6. I assumed that disabling the select boxes instead on hiding the display when necessary would provide a clean user experience
-7. I assumed that handling the state in a modern redux pattern would be the best way to handle state management in tandem with handleing api responses
+7. I assumed that managing the state with a modern Redux pattern would be the best approach for handling state and API responses
 
 ### Testing assumptions
 
-1. I assumed that jest testing would be a proper way to unit test the components
-2. I assumed that e2e tests would be a stronger use of my technical display
-3. I assumed that cypress e2e testing would be the best way to conduct e2e testing
+1. I assumed that Jest is a suitable tool for unit testing the components
+2. I assumed that E2E tests would provide a stronger demonstration of my technical abilities
+3. I assumed that Cypress is the best tool for conducting E2E testing
 
 ### General assumptions
 
-1. I assumed that I could complete this project 24 hours before the case study interview - as apposed to 24 business hours (even though that includes the weekend)
-2. I assumed that the case study could be conducted on a mac machine
+1. I assumed that I could complete this project 24 hours before the case study interview despite the weekedn overlapping with that timeframe
+2. I assumed that the case study could be conducted on a Mac machine
 3. I assumed that the application could be displayed and demoed on localhost
-4. I assumed that docker would be unnesesary (although easy to implement)
+4. I assumed that Docker would be unnecessary (although it could be easily implemented)
