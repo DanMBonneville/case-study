@@ -65,15 +65,14 @@ const HomePage: React.FC = () => {
 	const handleDirectionSelectionChange = (
 		selectedOption: SingleValue<SelectOption>
 	) => {
+		dispatch(setSelectedDirection(selectedOption));
 		if (selectedOption !== null) {
-			dispatch(setSelectedDirection(selectedOption));
 			const queryParams = {
 				routeId: selectedRoute.value,
 				directionId: selectedOption.value,
 			};
 			store.dispatch(getBusStops(queryParams));
 		} else {
-			dispatch(setSelectedDirection(null));
 			dispatch(setBusStops([]));
 		}
 	};
@@ -81,6 +80,7 @@ const HomePage: React.FC = () => {
 	return (
 		<div className="home-page-container">
 			<CustomSelect
+				data-testid="route-select"
 				placeholder="Select route"
 				options={routeOptions}
 				selectedValue={selectedRoute}
@@ -88,6 +88,7 @@ const HomePage: React.FC = () => {
 				handleChange={handleRouteSelectionChange}
 			/>
 			<CustomSelect
+				data-testid="direction-select"
 				placeholder="Select direction"
 				options={directionOptions}
 				selectedValue={selectedDirection}
