@@ -1,43 +1,23 @@
-import { ReactElement } from "react";
-import { SingleValue } from "react-select";
+import { store } from '../store/store';
 
 declare global {
-	export type LayoutProps = {
-		children: ReactElement;
-	};
+  export type AppState = ReturnType<typeof store.getState>;
 
-	export type CustomSelectProps = {
-		"data-testid": string;
-		placeholder: string;
-		options: SelectOption[];
-		selectedValue?: SelectOption;
-		isDisabled: boolean;
-		handleChange: (selectedOption: SingleValue<SelectOption>) => void;
-	};
+  export type ReducerType = {
+    routes: BusRouteType[];
+    directions: BusDirectionType[];
+    busStops: BusStopType[];
 
-	export type SelectOption = {
-		value: string;
-		label: string;
-	};
+    selectedRoute: SelectOptionType | null;
+    selectedDirection: SelectOptionType | null;
 
-	export type ReducerType = {
-		routes: SelectOption[];
-		directions: SelectOption[];
-		busStops: StopType[];
+    loadingRoutes: boolean;
+    loadingDirections: boolean;
+    loadingStops: boolean;
+  };
 
-		selectedRoute: SelectOption | null;
-		selectedDirection: SelectOption | null;
-
-		loadingRoutes: boolean;
-		loadingDirections: boolean;
-	};
-
-	export type StopType = {
-		place_code: string;
-		description: string;
-	};
-
-	export type BusStopsDisplayProps = {
-		busStops: StopType[];
-	};
+  export type getBusStopQueryType = {
+    routeId: string;
+    directionId: string;
+  };
 }
