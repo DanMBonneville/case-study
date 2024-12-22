@@ -9,6 +9,6 @@
     "jsx": "react-jsx",
     "types": ["jest", "cypress", "@testing-library/cypress"]
   },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["./cypress.config.ts", "node_modules"]
+  "include": ["**/*.ts", "**/*.tsx", "node_modules/cypress"],
+  "exclude": ["./cypress.config.ts"]
 }

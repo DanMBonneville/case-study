@@ -113,7 +113,7 @@ npm run openCypress
 
 6. User feedback in for application **loading** state is important for the user experience
 
-7. Utilizing "Target Red" #CC0000 and metro transit blue #0053a0 is an appropriate styling combination
+7. Utilizing "Target Red" #cc0000 and metro transit blue #0053a0 is an appropriate styling combination
 
 ### Testing assumptions
 
