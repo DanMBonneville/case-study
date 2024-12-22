@@ -58,7 +58,7 @@ describe('this tests all user flows associated with this case study', () => {
 
     it('verifies changing route selection clears direction selection', () => {
       cy.selectRouteAndDirection('METRO Blue Line', 'Northbound');
-      cy.selectBusRoute('Route 615');
+      cy.selectBusRoute('Route 4');
 
       cy.findByTestId('direction-select')
         .find('input')
@@ -98,7 +98,7 @@ describe('this tests all user flows associated with this case study', () => {
     it('verifies clearing direction selection and selecting new values displays only new bus stops', () => {
       cy.getBusStopsForRouteAndDirection('METRO Blue Line', 'Northbound').then(
         (busStopsForRouteAndDirectionMetroBlueNorth: string[]) => {
-          cy.getBusStopsForRouteAndDirection('Route 615', 'Eastbound').then(
+          cy.getBusStopsForRouteAndDirection('Route 4', 'Northbound').then(
             (busStopsForRouteAndDirection615East: string[]) => {
               cy.verifyStringArraysAreDisjoint(
                 busStopsForRouteAndDirectionMetroBlueNorth,

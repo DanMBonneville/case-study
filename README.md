@@ -13,6 +13,8 @@ Download and install Node.js from the [official website](https://nodejs.org/en)
 
 2. Verify Node.js Installation
 
+Open a new command prompt or powershell and execute commands
+
 ```
 node -v
 npm -v
@@ -92,28 +94,39 @@ npm run openCypress
 ### API assumptions
 
 1. The provided api is stable and reliable
+
 2. The Api has no rate limit
+
 3. The api has proper error handling
 
 ### Frontend assumptions
 
-1. Typescript is an appropriate language for this task
-2. I asuumed that React would be a proper framework based on the industry standard repuatation that many people have for that framework
-3. I assumed that browser back and forth buttons would take you to and away this page based on simplicity
-4. I assumed that the users previous state could be maintained through redux persist when navigating to and from the application in the same browser
-5. I assumed that displaying the names of the stops would be sufficient for this case study
-6. I assumed that disabling the select boxes instead on hiding the display when necessary would provide a clean user experience
-7. I assumed that managing the state with a modern Redux pattern would be the best approach for handling state and API responses
+1. TypeScript with React is a suitable choice for this task
+
+2. Browser back and forth buttons take you to and from this single page application maintaining state within the browser
+
+3. Displaying just the names of the bus stops is sufficient after route and direction selection based on the requirements
+
+4. Disabling the select boxes instead on hiding the display when necessary - as the [provided example](https://www.metrotransit.org/nextrip) website functions - provides a clean user experience
+
+5. Managing the state with a modern Redux pattern would be the best approach for handling state and API responses
+
+6. User feedback in for application **loading** state is important for the user experience
+
+7. Utilizing "Target Red" #CC0000 and metro transit blue #0053a0 is an appropriate styling combination
 
 ### Testing assumptions
 
-1. I assumed that Jest is a suitable tool for unit testing the components
-2. I assumed that E2E tests would provide a stronger demonstration of my technical abilities
-3. I assumed that Cypress is the best tool for conducting E2E testing
+1. Unit and e2e testing is sufficient for this project
+
+2. Jest is a suitable tool for unit testing
+
+3. Cypress e2e testing is a strong choice for this project
 
 ### General assumptions
 
-1. I assumed that I could complete this project 24 hours before the case study interview despite the weekedn overlapping with that timeframe
-2. I assumed that the case study could be conducted on a Mac machine
-3. I assumed that the application could be displayed and demoed on localhost
-4. I assumed that Docker would be unnecessary (although it could be easily implemented)
+1. The application could be displayed and demonstated on localhost
+
+2. Containerizing the application is unnecessary, although possible
+
+3. Added infrustructure such as "combineReducers" in store.tsx, "lazy", and App.tsx, and "PersistGate" in the index.tsx, although not exactly necessary for this case study, displays scalability in the application

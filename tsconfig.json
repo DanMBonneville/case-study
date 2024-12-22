@@ -7,7 +7,8 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
-    "types": ["cypress", "@testing-library/cypress"]
+    "types": ["jest", "cypress", "@testing-library/cypress"]
   },
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["./cypress.config.ts", "node_modules"]
 }
