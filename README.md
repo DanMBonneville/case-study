@@ -5,36 +5,43 @@ based on APIs available via Metro Transit NextTrip API
 
 - **Technologies**: TypeScript, React, Redux, React Router, Axios, Sass, Cypress, Jest
 
-## Steps to build and run the application (mac)
+## Steps to run the application
 
-Install Homebrew: https://brew.sh/
+1. Install Node (Skip if you already have Node.js)
 
-Install Node
+Download and install Node.js from the [official website](https://nodejs.org/en)
 
-```
-brew install node
-```
-
-Install project dependencies
+2. Verify Node.js Installation
 
 ```
-cd ${project_location};
-npm install;
-npm run build;
+node -v
+npm -v
 ```
 
-Run the application
+2. Navigate to rhe project directory
 
 ```
-npm run start
+cd ${workspace}/case-study
 ```
 
-## Steps to test application (mac)
+3. Install project dependencies
+
+```
+npm install
+```
+
+4. Run the application
+
+```
+npm start
+```
+
+## Steps to test the application
 
 ### Running Jest unit tests
 
 ```
-npm run start
+npm test
 ```
 
 run all tests
@@ -45,21 +52,30 @@ a
 
 ### Running Cypress e2e testing
 
-We have the ability to run cypress in the browser or in "headless" mode
+We have the ability to run cypress in the **browser** or in **headless** mode (in the terminal without a browser)
 
-Note: the application must be running in a seperate terminal or process on port 3000
+**Note**: the application must be running in a seperate terminal or process on port 3000
+
+Navigate to rhe project directory and start application
 
 ```
+cd ${workspace}/case-study
 npm run start
 ```
 
-Headless
+Open a new command prompt or powershell, navigate to the same directory
+
+```
+cd ${workspace}/case-study
+```
+
+Run Cypress e2e tests in Headless mode
 
 ```
 npm run runCypress
 ```
 
-Browser
+Run Cypress e2e tests on the browser
 
 ```
 npm run openCypress
@@ -69,19 +85,19 @@ npm run openCypress
 2. Chose your favorite browser
 3. Click "Start E2E Testing in [Browser]"
 4. Click test-all-scenarios.cy.ts (Specs tab, cypress/e2e folder)
-5. Watch automated tests run! Checkout the state of the application at each step by clicking on each test
+5. Watch automated tests run! Checkout the state of the application at each step with the [time traveling](https://docs.cypress.io/app/core-concepts/open-mode#Time-traveling) feature
 
 ## Assumptions made during development
 
 ### API assumptions
 
-1. I assumed that the provided api was stable and reliable
-2. I assumed that there was no rate limit calling the API
-3. I assumed that the api had proper error handling
+1. The provided api is stable and reliable
+2. The Api has no rate limit
+3. The api has proper error handling
 
 ### Frontend assumptions
 
-1. I assumed that typescript would be the best example of my technical ability based on the job description
+1. Typescript is an appropriate language for this task
 2. I asuumed that React would be a proper framework based on the industry standard repuatation that many people have for that framework
 3. I assumed that browser back and forth buttons would take you to and away this page based on simplicity
 4. I assumed that the users previous state could be maintained through redux persist when navigating to and from the application in the same browser
