@@ -86,7 +86,7 @@ const HomePage: React.FC = () => {
     <div className="home-page-container">
       <CustomSelect
         data-testid="route-select"
-        placeholder="Select route"
+        placeholder={loadingRoutes ? ' Loading... ' : 'Select route'}
         options={routeOptions}
         selectedValue={selectedRoute}
         isDisabled={loadingRoutes || routes.length === 0}
@@ -94,7 +94,7 @@ const HomePage: React.FC = () => {
       />
       <CustomSelect
         data-testid="direction-select"
-        placeholder="Select direction"
+        placeholder={loadingDirections ? ' Loading... ' : 'Select direction'}
         options={directionOptions}
         selectedValue={selectedDirection}
         isDisabled={loadingDirections || !selectedRoute}

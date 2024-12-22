@@ -8,8 +8,8 @@ const BusStopsDisplay: React.FC<BusStopsDisplayProps> = ({
   isLoading
 }) => {
   const visibilityClass = useMemo(() => {
-    return busStops.length === 0 ? 'hidden' : '';
-  }, [busStops]);
+    return busStops?.length > 0 || isLoading ? '' : 'hidden';
+  }, [busStops?.length, isLoading]);
 
   const busStopList = useMemo(() => {
     return busStops.map((busStop) => (
