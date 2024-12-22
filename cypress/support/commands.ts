@@ -2,7 +2,11 @@
 import '@testing-library/cypress/add-commands';
 
 Cypress.Commands.add('selectBusRoute', (route: string) => {
-  cy.findByTestId('route-select').click();
+  cy.findByTestId('route-select')
+    .find('input')
+    .first()
+    .should('be.enabled')
+    .click();
   cy.findByText(route).click();
 });
 
@@ -39,7 +43,7 @@ Cypress.Commands.add(
   (route: string, direction: string) => {
     cy.selectBusRoute(route);
     cy.selectRouteDirection(direction);
-    cy.findByTestId('bus-stops-wrapper')
+    cy.findByTestId('bus-stops-list', { timeout: 10000 })
       .find('.bus-stop-list-item p')
       .then(($pElements) => {
         return Cypress.$.map($pElements, (el) => (el as HTMLElement).innerText);

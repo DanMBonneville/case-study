@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Loader from '../hoc/Loader';
 
 const BusStopsDisplay: React.FC<BusStopsDisplayProps> = ({
@@ -7,18 +7,30 @@ const BusStopsDisplay: React.FC<BusStopsDisplayProps> = ({
   busStops,
   isLoading
 }) => {
-  const busStopDisplayLabel = `Bus stops for ${routeLabel} headed ${directionLabel}`;
+  const visibilityClass = useMemo(() => {
+    return busStops?.length > 0 || isLoading ? '' : 'hidden';
+  }, [busStops?.length, isLoading]);
 
-  if (isLoading) return <Loader />;
+  const busStopList = useMemo(() => {
+    return busStops.map((busStop) => (
+      <div className="bus-stop-list-item" key={busStop.place_code}>
+        <p>{busStop.description}</p>
+      </div>
+    ));
+  }, [busStops]);
 
   return (
-    <div data-testid={'bus-stops-wrapper'} className="bus-stops-wrapper">
-      {busStops.length > 0 && <h2>{busStopDisplayLabel}</h2>}
-      {busStops.map((busStop) => (
-        <div className="bus-stop-list-item" key={busStop.place_code}>
-          <p>{busStop.description}</p>
-        </div>
-      ))}
+    <div
+      data-testid={'bus-stops-wrapper'}
+      className={'bus-stops-wrapper ' + visibilityClass}
+    >
+      <h3 className={'bus-stop-label ' + visibilityClass}>
+        Bus stops for:&nbsp;<u>{routeLabel}</u>&nbsp;headed&nbsp;
+        <u>{directionLabel}</u>
+      </h3>
+      <div data-testid="bus-stops-list" className="bus-stops-list">
+        {isLoading ? <Loader /> : busStopList}
+      </div>
     </div>
   );
 };

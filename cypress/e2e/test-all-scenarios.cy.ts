@@ -28,7 +28,7 @@ describe('this tests all user flows associated with this case study', () => {
     it('verifies bus stops display after route and direction options are selected', () => {
       cy.selectRouteAndDirection('METRO Blue Line', 'Northbound');
 
-      cy.findByTestId('bus-stops-wrapper')
+      cy.findByTestId('bus-stops-list')
         .should('be.visible')
         .children()
         .should('have.length.greaterThan', 1);
@@ -50,7 +50,7 @@ describe('this tests all user flows associated with this case study', () => {
         .should('exist')
         .should('not.be.enabled');
 
-      cy.findByTestId('bus-stops-wrapper')
+      cy.findByTestId('bus-stops-list')
         .should('not.be.visible')
         .children()
         .should('have.length', 0);
@@ -58,7 +58,7 @@ describe('this tests all user flows associated with this case study', () => {
 
     it('verifies changing route selection clears direction selection', () => {
       cy.selectRouteAndDirection('METRO Blue Line', 'Northbound');
-      cy.selectBusRoute('Route 615');
+      cy.selectBusRoute('Route 4');
 
       cy.findByTestId('direction-select')
         .find('input')
@@ -69,7 +69,7 @@ describe('this tests all user flows associated with this case study', () => {
           cy.wrap(inputValue).should('equal', '');
         });
 
-      cy.findByTestId('bus-stops-wrapper')
+      cy.findByTestId('bus-stops-list')
         .should('not.be.visible')
         .children()
         .should('have.length', 0);
@@ -89,7 +89,7 @@ describe('this tests all user flows associated with this case study', () => {
         .should('exist')
         .should('be.enabled');
 
-      cy.findByTestId('bus-stops-wrapper')
+      cy.findByTestId('bus-stops-list')
         .should('not.be.visible')
         .children()
         .should('have.length', 0);
@@ -98,7 +98,7 @@ describe('this tests all user flows associated with this case study', () => {
     it('verifies clearing direction selection and selecting new values displays only new bus stops', () => {
       cy.getBusStopsForRouteAndDirection('METRO Blue Line', 'Northbound').then(
         (busStopsForRouteAndDirectionMetroBlueNorth: string[]) => {
-          cy.getBusStopsForRouteAndDirection('Route 615', 'Eastbound').then(
+          cy.getBusStopsForRouteAndDirection('Route 4', 'Northbound').then(
             (busStopsForRouteAndDirection615East: string[]) => {
               cy.verifyStringArraysAreDisjoint(
                 busStopsForRouteAndDirectionMetroBlueNorth,

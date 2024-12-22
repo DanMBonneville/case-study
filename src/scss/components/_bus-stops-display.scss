@@ -1,15 +1,29 @@
 .bus-stops-wrapper {
+  padding: 20px 5px;
+  margin-bottom: 15px;
+  max-width: 90%;
+
+  border-top: 2px solid grey;
+  border-bottom: 2px solid grey;
+
   background-color: white;
-  border-radius: 5px;
-  padding: 5px;
   overflow-y: auto;
 }
 
-.bus-stops-wrapper:empty {
-  display: none;
+.bus-stop-label {
+  text-align: center;
 }
 
-.bus-stop-list-item {
+.bus-stops-list {
+  overflow-y: auto;
+}
+
+.hidden {
+  visibility: hidden;
+  background-color: red;
+}
+
+q .bus-stop-list-item {
   border-bottom: 1px solid #e0e0e0;
 }
 

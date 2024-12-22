@@ -14,6 +14,14 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
       ...provided,
       width: '100%',
       opacity: state.isDisabled ? 0.4 : 1
+    }),
+    control: (provided, state) => ({
+      ...provided,
+      borderColor: state.isFocused ? '#0053a0' : provided.borderColor,
+      boxShadow: state.isFocused ? '0 0 0 1px #0053a0' : provided.boxShadow,
+      '&:hover': {
+        borderColor: state.isFocused ? '#0053a0' : provided.borderColor
+      }
     })
   };
 
