@@ -28,7 +28,7 @@ describe('this tests all user flows associated with this case study', () => {
     it('verifies bus stops display after route and direction options are selected', () => {
       cy.selectRouteAndDirection('METRO Blue Line', 'Northbound');
 
-      cy.findByTestId('bus-stops-wrapper')
+      cy.findByTestId('bus-stops-list')
         .should('be.visible')
         .children()
         .should('have.length.greaterThan', 1);
@@ -50,7 +50,7 @@ describe('this tests all user flows associated with this case study', () => {
         .should('exist')
         .should('not.be.enabled');
 
-      cy.findByTestId('bus-stops-wrapper')
+      cy.findByTestId('bus-stops-list')
         .should('not.be.visible')
         .children()
         .should('have.length', 0);
@@ -69,7 +69,7 @@ describe('this tests all user flows associated with this case study', () => {
           cy.wrap(inputValue).should('equal', '');
         });
 
-      cy.findByTestId('bus-stops-wrapper')
+      cy.findByTestId('bus-stops-list')
         .should('not.be.visible')
         .children()
         .should('have.length', 0);
@@ -89,7 +89,7 @@ describe('this tests all user flows associated with this case study', () => {
         .should('exist')
         .should('be.enabled');
 
-      cy.findByTestId('bus-stops-wrapper')
+      cy.findByTestId('bus-stops-list')
         .should('not.be.visible')
         .children()
         .should('have.length', 0);
