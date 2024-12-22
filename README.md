@@ -20,7 +20,7 @@ node -v
 npm -v
 ```
 
-2. Navigate to rhe project directory
+2. Navigate to the project directory
 
 ```
 cd ${workspace}/case-study
@@ -56,7 +56,7 @@ a
 
 We have the ability to run cypress in the **browser** or in **headless** mode (in the terminal without a browser)
 
-**Note**: the application must be running in a seperate terminal or process on port 3000
+**Note**: the application must be running in a separate terminal or process on port 3000
 
 Navigate to rhe project directory and start application
 
@@ -125,7 +125,7 @@ npm run openCypress
 
 ### General assumptions
 
-1. The application could be displayed and demonstated on localhost
+1. The application could be displayed and demonstrated on localhost
 
 2. Containerizing the application is unnecessary, although possible
 
